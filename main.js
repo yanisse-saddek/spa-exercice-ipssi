@@ -46,6 +46,12 @@ const fetchArticles = async () => {
     }
     )
 }
+console.log(
+    'url: ', url,
+    'page: ', page,
+    'pageName: ', pageName,
+ 
+)
 
 switch (pageName) {
     case "":
