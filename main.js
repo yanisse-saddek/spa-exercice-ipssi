@@ -2,10 +2,6 @@ import './style.css'
 import Card from "./src/components/Card";
 import Navbar from "./src/components/Navbar";
 
-const url = window.location.href;
-const page = url.split("/").pop();
-const pageName = page.split(".").shift();
-
 document.querySelector("#app").appendChild(Navbar());
 
 const fetchUsers = async () => {
@@ -46,20 +42,14 @@ const fetchArticles = async () => {
     }
     )
 }
-console.log(
-    'url: ', url,
-    'page: ', page,
-    'pageName: ', pageName,
- 
-)
 
-switch (pageName) {
-    case "":
-        fetchUsers();
-    break;
 
-    case "articles":
-        fetchArticles();
-    break;
-};
+const actualPage = window.location.pathname;
 
+if (actualPage === "/") {
+    fetchUsers();
+}
+
+if (actualPage === "/articles") {
+    fetchArticles();
+}
