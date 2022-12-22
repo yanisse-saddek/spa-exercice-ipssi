@@ -8,7 +8,7 @@ const rootElement = document.querySelector("#app");
 
 
 export const tabManager = new TabManager(rootElement, {
-    page1: {
+    home: {
         component:searchCharacters,
         params:[1],
     },
@@ -21,7 +21,7 @@ export const tabManager = new TabManager(rootElement, {
     }
 })
 
-tabManager.openTabsById("page1");
+tabManager.openTabsById("home");
 
 
 

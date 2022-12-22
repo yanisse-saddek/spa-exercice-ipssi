@@ -11,6 +11,7 @@ export default class TabManager{
             console.log(props.length, props, params)
             const Component = await component(...(props.length ? props : params));
             this.rootElement.appendChild(Component);
+            window.history.replaceState({}, '', `/${id}`);
 
         }else{
             throw new Error("No tab with id: "+id);
