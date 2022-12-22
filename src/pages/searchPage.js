@@ -1,5 +1,6 @@
 import Card from '../components/Card';
 import SearchBar from "../components/SearchBar";
+import NotFound from "../components/NotFound";
 
 const searchPage = async (params) =>{
     const div = document.createElement("div");
@@ -10,14 +11,19 @@ const searchPage = async (params) =>{
         const request = await fetch(`https://rickandmortyapi.com/api/character/?name=${params}`);
         const data = await request.json();
 
-        const filteredData = data.results.filter(character => character.name.toLowerCase().includes(params.toLowerCase()));
+        if(data.results){
 
-        const listOfCards = document.createElement("div");
-        listOfCards.classList.add("listOfCards");
-        div.appendChild(listOfCards);
-        filteredData.forEach(character => {
-            listOfCards.appendChild(Card(character));
-        })
+            const filteredData = data.results.filter(character => character.name.toLowerCase().includes(params.toLowerCase()));
+            const listOfCards = document.createElement("div");
+            listOfCards.classList.add("listOfCards");
+            
+            div.appendChild(listOfCards);
+            filteredData.forEach(character => {
+                listOfCards.appendChild(Card(character));
+            })
+        }else{
+            div.appendChild(NotFound());
+        }
     }
 
     return div;

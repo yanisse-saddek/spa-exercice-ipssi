@@ -194,3 +194,9 @@ nav{
   align-items: center ;
   justify-content: center;
 }
+
+
+.alert{
+  text-align: center;
+  color:rgb(163, 30, 30);
+}
