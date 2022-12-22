@@ -20,8 +20,8 @@ export const tabManager = new TabManager(rootElement, {
         params:[1]
     }
 })
-
-tabManager.openTabsById("home");
+const url = window.location.pathname.split("/")[1];
+tabManager.openTabsById(url || 'home');
 
 
 
