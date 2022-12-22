@@ -1,8 +1,8 @@
 import { createElement } from "../utils/createElement.js";
+import { tabManager } from "../../main.js";
 
 export default function Character({ id, name, status, episode, gender, image}) {
-    console.log(id, name, status, episode, gender, image)
-    return createElement({
+    const element =  createElement({
     tagName: "div",
     classList: ["card"],
     children: [
@@ -41,4 +41,8 @@ export default function Character({ id, name, status, episode, gender, image}) {
         }
     ]
 })
+    element.querySelector(".card-button").addEventListener("click", (e)=>{
+        tabManager.openTabsById("page1");
+    })
+    return element;
 }

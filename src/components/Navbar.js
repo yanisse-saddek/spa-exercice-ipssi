@@ -17,6 +17,13 @@ export default function Navbar(loadArticle) {
                         classList: ["navbar-item"],
                         text: "Articles",
                         id: "articles",
-                    }],
+                    },
+                    {
+                        tagName: "p",
+                        classList: ["navbar-item"],
+                        text: "Rechercher",
+                        id: "search",
+                    }
+        ],    
     });
 }

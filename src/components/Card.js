@@ -1,7 +1,9 @@
 import { createElement } from "../utils/createElement.js";
+import { tabManager } from "../../main.js";
+
 
 export default function Card({ name, image, display, id}) {
-    return createElement({
+    const element =  createElement({
     tagName: "div",
     classList: ["card"],
     style: {
@@ -25,7 +27,14 @@ export default function Card({ name, image, display, id}) {
             tagName:"p",
             classList:["card-button"],
             text:"Voir le personnage",
-            id:"character-"+id,
+            attributes:{
+                "data-character-id":id,
+            }
         }
     ]
-})}
+})
+    element.querySelector(".card-button").addEventListener("click", (e)=>{
+        tabManager.openTabsById("character", [e.target.dataset.characterId]);
+    })
+    return element;
+}
