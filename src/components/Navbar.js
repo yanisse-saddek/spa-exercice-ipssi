@@ -1,26 +1,22 @@
 import { createElement } from "../utils/createElement.js";
 
-export default function Navbar() {
+export default function Navbar(loadArticle) {
     return createElement({
         tagName: "nav",
         classList: ["navbar"],
         children: [
                     {
-                        tagName: "a",
-                        classList: ["navbar-item"],
+                        tagName: "p",
+                        classList: ["navbar-item", "home"],
                         text:"Accueil",
-                        attributes: {
-                            href: "/",
-                        },
+                        // id: "home",
                     },
                     {
 
-                        tagName: "a",
+                        tagName: "p",
                         classList: ["navbar-item"],
                         text: "Articles",
-                        attributes: {
-                            href: "/articles",
-                        },
+                        id: "articles",
                     }],
     });
 }

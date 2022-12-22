@@ -1,12 +1,16 @@
 const createElement = ({ tagName, ...rest }) => {
     const element = document.createElement(tagName);
-  
+
     if ('classList' in rest) {
       element.classList.add(...rest.classList);
     }
   
     if ('text' in rest) {
       element.textContent = rest.text;
+    }
+
+    if('id' in rest){
+        element.id = rest.id;
     }
   
     if ('attributes' in rest) {
