@@ -42,7 +42,7 @@ export default function Character({ id, name, status, episode, gender, image}) {
     ]
 })
     element.querySelector(".card-button").addEventListener("click", (e)=>{
-        tabManager.openTabsById("page1");
+        tabManager.openTabsById("home");
     })
     return element;
 }
