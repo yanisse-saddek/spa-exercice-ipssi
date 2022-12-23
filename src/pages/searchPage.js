@@ -17,7 +17,11 @@ const searchPage = async (params) =>{
             const listOfCards = document.createElement("div");
             listOfCards.classList.add("listOfCards");
             
+            const h3 = document.createElement("h3");
+            h3.textContent = `${filteredData.length} Résultats de la recherche pour "${params}"`;
+            div.appendChild(h3);
             div.appendChild(listOfCards);
+
             filteredData.forEach(character => {
                 listOfCards.appendChild(Card(character));
             })
